@@ -44,3 +44,14 @@ let printList = list => {
 }
 
 printList(list)
+
+// 5
+let reversePrintList = list => {
+    if (list.next != null){
+       reversePrintList(list.next)
+    }
+
+    console.log(list.value) 
+}
+
+reversePrintList(list)
