@@ -1,0 +1,2 @@
+документ является объектом класса HTMLDocument
+через console.dir проверим цепочку прототипов, узнаем, что Node -> Document -> HTMLDocument -> document
