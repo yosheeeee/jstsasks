@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .time {
+            display: flex;
+            font-size: 20px;
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        .hours {
+            color: red;
+        }
+
+        .minutes {
+            color: green
+        }
+
+        .seconds {
+            color: blue;
+        }
+
+        .timer {
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        .buttons {
+            width: fit-content;
+            margin: 0 auto;
+            display: flex;
+            gap: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="timer">
+        <div class="time">
+            <p class="hours">hh</p>
+            <p>:</p>
+            <p class="minutes">mm</p>
+            <p>:</p>
+            <p class="seconds">ss</p>
+        </div>
+        <div class="buttons">
+            <button class="start">start</button>
+            <button class="stop">stop</button>
+        </div>
+    </div>
+
+    <script>
+        let startButton = document.querySelector('.start')
+        startButton.addEventListener('click',() => start())
+        let stopButton = document.querySelector('.stop')
+        stopButton.addEventListener('click',() => stop())
+        let seconds = document.querySelector('.seconds')
+        let minutes = document.querySelector('.minutes')
+        let hours = document.querySelector('.hours')
+
+        let timerId
+
+        function start() {
+            if(!timerId) timerId = setInterval(update, 1000)
+            update()
+        }
+
+        function update() {
+            seconds = document.querySelector('.seconds')
+            minutes = document.querySelector('.minutes')
+            hours = document.querySelector('.hours')
+
+            let d = new Date()
+
+            seconds.textContent = d.getSeconds()
+            minutes.textContent = d.getMinutes()
+            hours.textContent = d.getHours()
+        }
+
+        function stop() {
+            clearInterval(timerId)
+            timerId = null
+            seconds.textContent ='ss'
+            minutes.textContent = 'mm'
+            hours.textContent = 'hh'
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Smith</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Pete</td>
+                <td>Brown</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>Ann</td>
+                <td>Lee</td>
+                <td>5</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        let table = document.querySelector('table')
+        let trList = table.children[1].children
+        
+        console.dir(trList)
+        let newTableBody = document.createElement('tbody')
+        let trArray = Array.from(trList)
+        trArray.sort((a,b) => a.firstChild.data > b.firstChild.data ? 1: -1)
+        newTableBody.innerHTML = trArray
+        table.tBodies[0].append(...trArray)
+    </script>
+</body>
+
+</html>
