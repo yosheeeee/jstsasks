@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            align-items: center;
+        }
+
+        ul {
+            list-style: none;
+            width: 99999px;
+            padding: 0;
+            transition: margin-left 350ms;
+        }
+
+        li {
+            display: inline-block;
+        }
+
+        img {
+            width: 130px;
+            height: 130px;
+            display: block;
+        }
+
+        .wrapper {
+            width: 400px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <button class="arrow">⇦</button>
+
+        <div class="wrapper">
+            <ul id="ul">
+                <li><img src="https://ru.js.cx/carousel/1.png"></li>
+                <li><img src="https://ru.js.cx/carousel/2.png"></li>
+                <li><img src="https://ru.js.cx/carousel/3.png"></li>
+                <li><img src="https://ru.js.cx/carousel/4.png"></li>
+                <li><img src="https://ru.js.cx/carousel/5.png"></li>
+                <li><img src="https://ru.js.cx/carousel/6.png"></li>
+                <li><img src="https://ru.js.cx/carousel/7.png"></li>
+                <li><img src="https://ru.js.cx/carousel/8.png"></li>
+                <li><img src="https://ru.js.cx/carousel/9.png"></li>
+                <li><img src="https://ru.js.cx/carousel/10.png"></li>
+            </ul>
+        </div>
+
+        <button class="arrow">⇨</button>
+    </div>
+
+    <script>
+        let btnLeft, btnRigth
+        [btnLeft, btnRigth] = document.querySelectorAll('.arrow')
+        let counter = 0;
+        let wrapper = document.querySelector('.wrapper')
+        btnRigth.addEventListener('click', moveRight)
+        btnLeft.addEventListener('click',moveLeft)
+        function moveRight(event) {
+            if (counter > -3) {
+                counter--
+                ul.style.marginLeft = counter * 400 + 'px'
+            }
+        }
+
+        function moveLeft(event){
+            if (counter < 0) {
+                counter++
+                ul.style.marginLeft = counter * 400 + 'px'
+            }
+        }
+    </script>
+</body>
+
+</html>
