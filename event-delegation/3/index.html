@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table id="grid">
+        <thead>
+            <tr>
+                <th data-type="number">Возраст</th>
+                <th data-type="string">Имя</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>5</td>
+                <td>Вася</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Петя</td>
+            </tr>
+            ...
+        </tbody>
+    </table>
+
+    <script>
+        document.querySelector('#grid').addEventListener('click',elem => {
+            let type = elem.target.dataset.type
+            if (!type) return 
+            let tbody = document.querySelector('tbody')
+            let tbodyArray = Array.from(tbody.rows)
+            switch(type){
+                case "number":
+                    tbodyArray.sort((a,b) =>  a.cells[0] > b.cells[1] ? 1: -1 )
+                    break;
+                case 'string':
+                    tbodyArray.sort((a,b)=> a.cells[1] > b.cells[1] ? 1: -1)
+
+            }
+            tbody.append(...tbodyArray)
+        })
+    </script>
+</body>
+
+</html>

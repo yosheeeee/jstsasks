@@ -62,13 +62,13 @@
     })
 
     let tree = document.querySelector('#tree')
-    tree.addEventListener('click',(event) => hideList(event))
+    tree.addEventListener('click',hideList)
     function hideList(event) {
       if (event.target.tagName != 'SPAN') return
-      let childrenUl = event.target.closest('li').lastElementChild
-      if (childrenUl.tagName != 'UL') return
-      else childrenUl.style.hidden = !childrenUl.style.hidden
-      console.log(event.target) 
+      let childrenUl = eevent.target.parentNode.querySelector('ul')
+      if (!childrenUl) return 
+      childrenUl.hidden = !childrenUl.hidden;
+      console.dir(event.target) 
     }
   </script>
 </body>
