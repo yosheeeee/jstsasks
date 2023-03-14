@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    .hiden{
+        display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <input type="button" id="hider" value="Нажмите, чтобы спрятать текст" />
+
+  <div id="text">Текст</div>
+
+  <script>
+    let button= document.querySelector('#hider')
+    button.addEventListener('click',removeText)
+
+    function removeText(){
+        let divText = document.querySelector('#text')
+        divText.classList.toggle('hiden')
+    }
+  </script>
+
+</body>
+</html>
