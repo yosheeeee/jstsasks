@@ -36,9 +36,9 @@ class Clock {
 class ExtendedClock extends Clock{
     precision = 1000
 
-    constructor({template,precision}){
-        super({template})
-        this.precision = precision
+    constructor(options){
+        super(options)
+        if (options.precision) this.precision = options.precision
     }
 
     start(){
